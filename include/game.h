@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Player.h"
-#include "visualFX.h"
+#include <player.h>
+#include <fire.h>
 
 #define SCREEN_WIDTH 1200
 #define SCREEN_HEIGHT 600
@@ -13,8 +13,8 @@ private:
 	sf::RenderWindow* m_window;
 	sf::Event m_event;
 
-	Player* m_player;
-	visualFX m_vfx;
+	Player m_player;
+	Fire m_vfx;
 
 	sf::Clock m_deltaTimer;
 

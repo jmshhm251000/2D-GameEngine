@@ -1,7 +1,7 @@
-#include "Game.h"
+#include <game.h>
 
 Game::Game()
-	: m_player(new Player), m_window(nullptr)
+	: m_window(nullptr)
 {
 	initWindow();
 }
@@ -9,7 +9,6 @@ Game::Game()
 Game::~Game()
 {
 	delete m_window;
-	delete m_player;
 }
 
 void Game::initWindow()
@@ -29,7 +28,7 @@ void Game::pollEvents()
 	while (m_window->pollEvent(m_event)) {
 		if (m_event.type == sf::Event::Closed)
 			m_window->close();
-		m_player->keyListener(m_event);
+		m_player.keyListener(m_event);
 	}
 }
 
@@ -37,9 +36,9 @@ void Game::update()
 {
 	sf::Time elapsedTimePerFrame = m_deltaTimer.getElapsedTime();
 
-	float deltaTime = elapsedTimePerFrame.asMilliseconds();
+	uint32_t deltaTime = elapsedTimePerFrame.asMilliseconds();
 	pollEvents();
-	m_player->update(deltaTime);
+	m_player.update(deltaTime);
 	m_vfx.update();
 
 	m_deltaTimer.restart();
@@ -50,7 +49,7 @@ void Game::render()
 {
 	m_window->clear();
 
-	m_player->render(*m_window);
+	m_player.render(*m_window);
 	m_vfx.render(*m_window);
 
 	m_window->display();

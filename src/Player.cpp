@@ -1,16 +1,9 @@
-#include "Player.h"
+#include <player.h>
 #include <memory>
 
 Player::Player() : m_accel(0.5f), m_maxspeed(5.f), m_state(0), m_animIndex(0), m_flip(false), m_position( 600, 300){
-	if (!m_idleTexture.loadFromFile("resource/idle.png")) {
-		printf("Error: Failed to load idle sprite");
-	}
-
-	if (!m_walkTexture.loadFromFile("resource/walk.png")) {
-		printf("Error: Failed to load walking sprite");
-	}
-	m_idle = std::make_unique<Animation>(m_idleTexture, 4, sf::Vector2<uint16_t>{ 4, 1 }, sf::Vector2<uint16_t>{ 64, 64 }, sf::Vector2f( 2.f, 2.f));
-	m_walk = std::make_unique<Animation>(m_walkTexture, 5, sf::Vector2<uint16_t>{ 5, 1 }, sf::Vector2<uint16_t>{ 64, 64 }, sf::Vector2f( 2.f, 2.f));
+	m_idle = std::make_unique<Animation>("resource/idle.png", 4, sf::Vector2<uint16_t>{ 4, 1 }, sf::Vector2<uint16_t>{ 64, 64 }, sf::Vector2f( 2.f, 2.f));
+	m_walk = std::make_unique<Animation>("resource/walk.png", 5, sf::Vector2<uint16_t>{ 5, 1 }, sf::Vector2<uint16_t>{ 64, 64 }, sf::Vector2f( 2.f, 2.f));
 }
 
 void Player::keyListener(sf::Event event)
@@ -48,9 +41,9 @@ void Player::animationState() {
 	}
 }
 
-void Player::move(float deltaTime) {
+void Player::move(uint32_t deltaTime) {
 	float preX = m_position.x;
-	float speed = (m_movement[1] - m_movement[0]) * m_accel * deltaTime;
+	float speed = (m_movement[1] - m_movement[0]) * m_accel * static_cast<float>(deltaTime);
 	speed = std::clamp(speed, -m_maxspeed, m_maxspeed);
 	m_position.x += speed;
 	if (m_position.x != preX) {
@@ -62,7 +55,7 @@ void Player::move(float deltaTime) {
 	}
 }
 
-void Player::update(float deltaTime)
+void Player::update(uint32_t deltaTime)
 {
 	move(deltaTime);
 	animationState();
