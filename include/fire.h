@@ -6,16 +6,16 @@
 class Fire
 {
 private:
-	sf::Clock m_clock;
 	std::unique_ptr<Animation> m_fire;
 	sf::Sprite m_sprite;
 	uint32_t m_animIndex;
+	float m_animTime;
 
 public:
 	Fire();
 	~Fire() = default;
 
-	void update();
+	void update(float deltaTime);
 	void render(sf::RenderTarget& window);
 };
 

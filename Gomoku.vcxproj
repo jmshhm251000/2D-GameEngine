@@ -163,12 +163,14 @@
     <ClCompile Include="src\player.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\tilemap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\animation.h" />
     <ClInclude Include="include\fire.h" />
     <ClInclude Include="include\player.h" />
     <ClInclude Include="include\game.h" />
+    <ClInclude Include="include\tilemap.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resource\Fire+Sparks-Sheet.png" />
@@ -191,6 +193,7 @@
     <Image Include="resource\oak_woods_v1.0\decorations\sign.png" />
     <Image Include="resource\oak_woods_v1.0\oak_woods_tileset.png" />
     <Image Include="resource\Samurai Merchant.gif" />
+    <Image Include="resource\tilemap.png" />
     <Image Include="resource\walk.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

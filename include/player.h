@@ -12,7 +12,6 @@ class Player
 {
 private:
 	sf::Sprite m_sprite;
-	sf::Clock m_clock;
 
 	std::unique_ptr<Animation> m_idle;
 	std::unique_ptr<Animation> m_walk;
@@ -24,15 +23,16 @@ private:
 	sf::Vector2f m_position;
 	uint32_t m_animIndex;
 	uint8_t m_state;
+	float m_animTimer;
 
 public:
 	Player();
 	~Player() = default;
 
 	void keyListener(sf::Event event);
-	void animationState();
-	void move(uint32_t deltaTime);
-	void update(uint32_t deltaTime);
+	void animationState(float deltaTime);
+	void move(float deltaTime);
+	void update(float deltaTime);
 	void render(sf::RenderTarget& window);
 };
 
