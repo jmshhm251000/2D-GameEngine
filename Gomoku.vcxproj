@@ -159,7 +159,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\fire.cpp" />
+    <ClCompile Include="src\entity.cpp" />
     <ClCompile Include="src\player.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -167,12 +167,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\animation.h" />
-    <ClInclude Include="include\fire.h" />
+    <ClInclude Include="include\entity.h" />
     <ClInclude Include="include\player.h" />
     <ClInclude Include="include\game.h" />
     <ClInclude Include="include\tilemap.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="resource\background_layer_1.png" />
+    <Image Include="resource\background_layer_2.png" />
+    <Image Include="resource\background_layer_3.png" />
     <Image Include="resource\Fire+Sparks-Sheet.png" />
     <Image Include="resource\idle.png" />
     <Image Include="resource\oak_woods_v1.0\background\background_layer_1.png" />

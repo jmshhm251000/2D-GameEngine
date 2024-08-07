@@ -1,7 +1,7 @@
 #include <game.h>
 
 Game::Game()
-	: m_window(nullptr), m_tileMap("resource/tilemap.png", 24, sf::Vector2f( 1.f, 1.f))
+	: m_window(nullptr), m_view(sf::Vector2f(0.f,0.f), sf::Vector2f( SCREEN_WIDTH, SCREEN_HEIGHT)), m_tileMap("resource/tilemap.png", 35)
 {
 	initWindow();
 }
@@ -31,6 +31,7 @@ void Game::pollEvents()
 		m_player.keyListener(m_event);
 		m_tileMap.changeIndex(m_event);
 		m_tileMap.createTileat(m_event);
+		m_tileMap.removeTile(m_event);
 	}
 }
 
@@ -41,10 +42,9 @@ void Game::update()
 	uint32_t deltaTime = elapsedTimePerFrame.asMilliseconds();
 
 	pollEvents();
-	m_player.update(deltaTimeFloat);
+	m_player.update(deltaTimeFloat, m_tileMap.nearTiles(m_player.getPos()));
 	m_fire.update(deltaTimeFloat);
-	m_tileMap.update(mouse, *m_window);
-
+	m_tileMap.update(mouse, *m_window, m_player.getPos(), 64);
 	m_deltaTimer.restart();
 }
 

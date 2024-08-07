@@ -24,7 +24,7 @@
     <ClCompile Include="src\player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\fire.cpp">
+    <ClCompile Include="src\entity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\tilemap.cpp">
@@ -38,7 +38,7 @@
     <ClInclude Include="include\player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\fire.h">
+    <ClInclude Include="include\entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\animation.h">
@@ -113,6 +113,15 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="resource\tilemap.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resource\background_layer_1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resource\background_layer_2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resource\background_layer_3.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <animation.h>
 
-class Fire
+class Entity
 {
 private:
 	std::unique_ptr<Animation> m_fire;
@@ -12,8 +12,8 @@ private:
 	float m_animTime;
 
 public:
-	Fire();
-	~Fire() = default;
+	Entity();
+	~Entity() = default;
 
 	void update(float deltaTime);
 	void render(sf::RenderTarget& window);

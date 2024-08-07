@@ -1,7 +1,7 @@
 #pragma once
 
 #include <player.h>
-#include <fire.h>
+#include <entity.h>
 #include <tilemap.h>
 
 #define SCREEN_WIDTH 1280
@@ -15,10 +15,11 @@ private:
 	sf::Event m_event;
 	sf::Clock m_deltaTimer;
 	sf::Mouse mouse;
+	sf::View m_view;
 
 	tilemap m_tileMap;
 	Player m_player;
-	Fire m_fire;
+	Entity m_fire;
 
 	void initWindow();
 
